@@ -1,0 +1,8 @@
+name = "inertia-edge-ssr"
+
+main = "bootstrap/ssr/ssr.js"
+
+[dev]
+ip = "localhost"
+host = "localhost:8000"
+upstream_protocol = "http"

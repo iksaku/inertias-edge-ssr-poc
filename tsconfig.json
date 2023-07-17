@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "node",
+        "lib": ["esnext"],
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "types": ["vite/client", "@cloudflare/workers-types"]
+    }
+}
