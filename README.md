@@ -24,10 +24,9 @@ sequenceDiagram
     activate W
     W-->>L: GET /
     L-->>W: Content-Type: text/html
-    note over W: Extract page data, render page<br/>and inject into HTML response
-    W->>CF: Content-Type: text/html
+    note over W: Render page and inject into HTML response
+    W->>C: Content-Type: text/html
     deactivate W
-    CF->>C: Content-Type: text/html
 ```
 
 Any requests to the application that do not result in a `Content-Type: text/html` response will be
@@ -44,11 +43,9 @@ sequenceDiagram
     CF->>W: GET /
     activate W
     W-->>L: GET /
-    L-->>W: Content-Type: application/json
+    L-->>C: Content-Type: application/json
     deactivate W
-    note over W: Not an HTML response. Forward as-is
-    W-->>CF: Content-Type: application/json
-    CF-->>C: Content-Type: application/json
+    note left of W: Not an HTML response. Forward as-is
 ```
 
 ## Installation
