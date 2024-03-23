@@ -1,5 +1,5 @@
 import { createInertiaApp } from 'inertia-adapter-solid'
-import {hydrate, render} from 'solid-js/web'
+import {hydrate} from 'solid-js/web'
 
 createInertiaApp({
     resolve(name) {

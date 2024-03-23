@@ -6,14 +6,14 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@cloudflare/workers-types": "^4.20230710.1",
-        "@solidjs/meta": "^0.28.5",
-        "html-entities": "^2.4.0",
-        "inertia-adapter-solid": "^0.1.7",
-        "laravel-vite-plugin": "^0.7.8",
-        "solid-js": "^1.7.8",
-        "vite": "^4.4.4",
-        "vite-plugin-solid": "^2.7.0",
-        "wrangler": "^3.2.0"
+        "@cloudflare/workers-types": "^4.20240320.1",
+        "@solidjs/meta": "^0.29.3",
+        "html-entities": "^2.5.2",
+        "inertia-adapter-solid": "^0.2.0",
+        "laravel-vite-plugin": "^1.0.2",
+        "solid-js": "^1.8.16",
+        "vite": "^5.2.4",
+        "vite-plugin-solid": "^2.10.2",
+        "wrangler": "^3.37.0"
     }
 }

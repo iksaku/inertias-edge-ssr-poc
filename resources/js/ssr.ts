@@ -16,9 +16,9 @@ export default {
 
         // console.log('Detected HTML request, inspecting for Inertia page data...')
 
-        let head: string = undefined
+        let _head: string | undefined = undefined
 
-        response = await new HTMLRewriter()
+        response = new HTMLRewriter()
             .on('#app', {
                 async element(element) {
                     if (!element.hasAttribute('data-page')) {
@@ -29,7 +29,7 @@ export default {
                     const encodedData = element.getAttribute('data-page')
                     // console.log('Found Inertia (encoded) page data, decoding...', decode(encodedData))
 
-                    let pageData
+                    let pageData: any
                     try {
                         pageData = JSON.parse(decode(encodedData))
                     } catch (e) {
@@ -39,7 +39,7 @@ export default {
 
                     // console.log('Rendering Inertia page with decoded data:', pageData)
 
-                    const { head: renderedHead, body } = await createInertiaApp({
+                    const { head, body } = await createInertiaApp({
                         id: 'app',
                         page: pageData,
                         resolve(name) {
@@ -48,21 +48,21 @@ export default {
                         }
                     })
 
-                    head = renderedHead
+                    _head = head.join('\n')
 
                     element.replace(body, { html: true })
                 }
             })
             .transform(response)
 
-        // Double rewriter is used to have proper sync access to the generated head
+        // // Double rewriter is used to have proper sync access to the generated head
         response = new HTMLRewriter()
             .on('head', {
                 element(element) {
-                    if (!head) return
+                    if (!_head) return
 
                     // console.log('Appending rendered head to initial request...', head)
-                    element.append(head, { html: true })
+                    element.append(_head, { html: true })
                 }
             })
             .transform(response)

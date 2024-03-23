@@ -12,6 +12,12 @@ export default defineConfig({
         solid({ ssr: true }),
     ],
     ssr: {
-        noExternal: ['inertia-adapter-solid']
+        noExternal: ['solid-js', 'html-entities', 'inertia-adapter-solid'],
+    },
+    resolve: {
+        alias: {
+            'util': 'node:util',
+        },
+        dedupe: ['solid-js', '@solidjs/meta']
     }
 });

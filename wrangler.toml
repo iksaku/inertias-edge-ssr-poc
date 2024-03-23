@@ -1,6 +1,7 @@
 name = "inertia-edge-ssr"
-
 main = "bootstrap/ssr/ssr.js"
+compatibility_date = "2024-01-29"
+compatibility_flags = [ "nodejs_compat" ]
 
 [dev]
 ip = "localhost"

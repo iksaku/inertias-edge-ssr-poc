@@ -8,7 +8,7 @@ export default function Welcome() {
     return (
         <div>
             <Title>Hello SSR!</Title>
-            <h1>Hello world!!!!</h1>
+            <h1>Hello world!</h1>
             <div>
                 <button onClick={() => setCount((count) => count - 1)}>-</button>
                 <span>{count()}</span>
